@@ -1,11 +1,18 @@
 package groupId.artifactId.utilities;
 
-import groupId.artifactId.model.Messages;
+import groupId.artifactId.model.SortedStatistic;
+import groupId.artifactId.model.SortedStatisticsWithVotes;
 
 public class PrintCollectionsHtml {
-    public static String sortedPrint() {
-        return "The 4 top rated singers are: " + SortingCollections.singersSort() +
-                "<br> The most popular genres are: " + SortingCollections.genresSort() +
-                "<br> The list of replies: " + Messages.getInstance().getMessages();
+
+    public String sortedPrint(SortedStatistic sortedStatistic) {
+        return "The 4 top rated singers are: " + sortedStatistic.getSingersStatistic() +
+                "<br> The most popular genres are: " + sortedStatistic.getGenresStatistic() +
+                "<br> The list of replies: " + sortedStatistic.getSaveMessages();
+    }
+    public String sortedPrintWithScores(SortedStatisticsWithVotes sortedStatisticsWithVotes){
+        return "The 4 top rated singers are: " + sortedStatisticsWithVotes.getSingersStatistic() +
+                "<br> The most popular genres are: " + sortedStatisticsWithVotes.getGenresStatistic() +
+                "<br> The list of replies: " + sortedStatisticsWithVotes.getSaveMessages();
     }
 }
