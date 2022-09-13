@@ -3,7 +3,7 @@ package groupId.artifactId.service;
 import groupId.artifactId.dao.GenresDao;
 import groupId.artifactId.dao.MessagesDao;
 import groupId.artifactId.dao.SingersDao;
-import groupId.artifactId.model.VoteResultSummary;
+import groupId.artifactId.core.entity.VoteResultSummary;
 
 public class Vote {
     private final SingersDao singersDao = new SingersDao();

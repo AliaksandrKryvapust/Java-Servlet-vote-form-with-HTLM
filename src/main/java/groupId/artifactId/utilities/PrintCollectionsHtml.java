@@ -1,7 +1,7 @@
 package groupId.artifactId.utilities;
 
-import groupId.artifactId.model.SortedStatistic;
-import groupId.artifactId.model.SortedStatisticsWithVotes;
+import groupId.artifactId.core.entity.SortedStatistic;
+import groupId.artifactId.core.entity.SortedStatisticsWithVotes;
 
 public class PrintCollectionsHtml {
 

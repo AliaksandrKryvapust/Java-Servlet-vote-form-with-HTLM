@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,32 +25,23 @@
     /*set class properties, higher priority than p{}*/
     </style>
 <body>
-<form method="post" name="voting" action="/it_acad_HW_HTML_with_servlet_headers-1.0-SNAPSHOT/vote_form">
+<form method="post" name="voting" action="/it_acad_HW_HTML_with_servlet_headers-1.1-SNAPSHOT/vote_result">
     <p class="select"> <!--declaring classes to group properties-->
         HW voting form <br> <br> <br>
         Select the best singer
         <label>
             <select name="singer">
-                <option value="">Choose an option</option>
-                <option>Michael Jackson</option>
-                <option>Stevie Wonder</option>
-                <option>Marvin Gaye</option>
-                <option>Freddie Mercury</option>
+                <c:forEach items="${dataForSingers}" var="singer">
+                    <option value="${singer.key}">${singer.value}</option>
+                </c:forEach>
             </select>
         </label>
-    </p>
     <p class="choice"> Choose your favorite music genres <br>
         Only 3-5 options are allowed <br>
-        <label> <input type="checkbox" name="genres" value="Rock"/>Rock</label>
-        <label> <input type="checkbox" name="genres" value="Jazz"/>Jazz</label> <br>
-        <label> <input type="checkbox" name="genres" value="Electronic Dance Music"/> Electronic Dance Music</label> <br>
-        <label> <input type="checkbox" name="genres" value="Dub-step"/> Dub-step</label>
-        <label> <input type="checkbox" name="genres" value="Techno"/> Techno</label> <br>
-        <label> <input type="checkbox" name="genres" value="Rhythm and Blues"/> Rhythm and Blues</label> <br>
-        <label> <input type="checkbox" name="genres" value="Country"/> Country</label>
-        <label> <input type="checkbox" name="genres" value="Pop"/> Pop</label> <br>
-        <label> <input type="checkbox" name="genres" value="Alternative Rock"/> Alternative Rock</label> <br>
-        <label> <input type="checkbox" name="genres" value="Classical music"/> Classical music</label> <br>
+        <c:forEach items="${dataForGenres}" var="choice">
+            <label><input type="checkbox" name="genres" value=${choice.key}></label>
+            ${choice.value}
+        </c:forEach>
     </p>
 
     <p class="introduction_text"> Perform an introduction text about yourself <br>
@@ -57,6 +50,9 @@
         </label>
     </p>
     <p><input type="submit" name="submit_btn" value="Submit"></p>
+</form>
+<form method="get" name="voting" action="/it_acad_HW_HTML_with_servlet_headers-1.1-SNAPSHOT/result">
+    <p><input type="submit" name="submit_btn" value="Skip vote and see results"></p>
 </form>
 </body>
 </html>

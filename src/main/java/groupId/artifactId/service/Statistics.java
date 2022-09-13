@@ -1,7 +1,7 @@
 package groupId.artifactId.service;
 
-import groupId.artifactId.model.SortedStatistic;
-import groupId.artifactId.model.SortedStatisticsWithVotes;
+import groupId.artifactId.core.entity.SortedStatistic;
+import groupId.artifactId.core.entity.SortedStatisticsWithVotes;
 
 import java.util.*;
 

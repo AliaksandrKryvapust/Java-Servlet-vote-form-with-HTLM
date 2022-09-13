@@ -1,4 +1,4 @@
-package groupId.artifactId.model;
+package groupId.artifactId.core.entity;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

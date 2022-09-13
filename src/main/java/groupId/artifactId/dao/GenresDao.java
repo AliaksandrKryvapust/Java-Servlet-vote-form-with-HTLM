@@ -4,6 +4,7 @@ import groupId.artifactId.storage.Genres;
 import groupId.artifactId.storage.VoteResults;
 
 import java.util.List;
+import java.util.Map;
 
 public class GenresDao {
     private final Genres genres = Genres.getInstance();
@@ -21,6 +22,9 @@ public class GenresDao {
     }
     public List<String> getGenresVote(){
         return voteResults.getGenresVote();
+    }
+    public Map<Integer,String> getGenresForHtml(){
+        return genres.getGenres();
     }
 //    public void addGenres(String genres) throws Exception {
 //        for (String values: this.genres.getGenres().values()) {

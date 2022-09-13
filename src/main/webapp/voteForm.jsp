@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,29 +28,21 @@
 <form method="post" name="voting" action="/it_acad_HW_HTML_with_servlet_headers-1.1-SNAPSHOT/vote_result">
     <p class="select"> <!--declaring classes to group properties-->
         HW voting form <br> <br> <br>
-        <label> Select the best singer
+        Select the best singer
+        <label>
             <select name="singer">
-                <option value="">Choose an option</option>
-                <option value="1">Michael Jackson</option>
-                <option value="2">Stevie Wonder</option>
-                <option value="3">Marvin Gaye</option>
-                <option value="4">Freddie Mercury</option>
+                <c:forEach items="${dataForSingers}" var="singer">
+                    <option value="${singer.key}">${singer.value}</option>
+                </c:forEach>
             </select>
         </label>
-    </p>
     <p class="choice"> Choose your favorite music genres <br>
         Only 3-5 options are allowed <br>
-        <label> <input type="checkbox" name="genres" value="1"/>Rock</label>
-        <label> <input type="checkbox" name="genres" value="2"/>Jazz</label> <br>
-        <label> <input type="checkbox" name="genres" value="3"/> Electronic Dance Music</label> <br>
-        <label> <input type="checkbox" name="genres" value="4"/> Dub-step</label>
-        <label> <input type="checkbox" name="genres" value="5"/> Techno</label> <br>
-        <label> <input type="checkbox" name="genres" value="6"/> Rhythm and Blues</label> <br>
-        <label> <input type="checkbox" name="genres" value="7"/> Country</label>
-        <label> <input type="checkbox" name="genres" value="8"/> Pop</label> <br>
-        <label> <input type="checkbox" name="genres" value="9"/> Alternative Rock</label> <br>
-        <label> <input type="checkbox" name="genres" value="10"/> Classical music</label> <br>
-    </p>
+    <c:forEach items="${dataForGenres}" var="choice">
+                    <label><input type="checkbox" name="genres" value=${choice.key}></label>
+                    ${choice.value}
+    </c:forEach>
+</p>
 
     <p class="introduction_text"> Perform an introduction text about yourself <br>
         <label>

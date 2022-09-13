@@ -1,11 +1,14 @@
 package groupId.artifactId.storage;
 
+import groupId.artifactId.storage.api.ISingersStorage;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class Singers {
+public class SingersStorage implements ISingersStorage {
     private Integer key = 1;
-    private static Singers firstInstance = null;
+    private static SingersStorage firstInstance = null;
     private final Map<Integer, String> singers = new HashMap<>();
      {
         singers.put(key, "Michael Jackson");
@@ -17,10 +20,10 @@ public class Singers {
         singers.put(key, "Freddie Mercury");
         key++;
     }
-    public static Singers getInstance() {
-        synchronized (Singers.class) {
+    public static SingersStorage getInstance() {
+        synchronized (SingersStorage.class) {
             if (firstInstance == null) {
-                firstInstance = new Singers();
+                firstInstance = new SingersStorage();
             }
         }
         return firstInstance;
@@ -30,8 +33,18 @@ public class Singers {
         return singers;
     }
 
-//    public void singersUpdate(String singer) {
-//        firstInstance.singers.putIfAbsent(firstInstance.key, singer);
-//        firstInstance.key++;
-//    }
+    @Override
+    public List<SingersStorage> get() {
+        return null;
+    }
+
+    @Override
+    public SingersStorage get(int id) {
+        return null;
+    }
+
+    @Override
+    public void save(SingersStorage singer) {
+
+    }
 }

@@ -1,12 +1,13 @@
 package groupId.artifactId.dao;
 
-import groupId.artifactId.storage.Singers;
+import groupId.artifactId.storage.SingersStorage;
 import groupId.artifactId.storage.VoteResults;
 
 import java.util.List;
+import java.util.Map;
 
 public class SingersDao {
-    private final Singers singer = Singers.getInstance();
+    private final SingersStorage singer = SingersStorage.getInstance();
     private final VoteResults voteResults = VoteResults.getInstance();
 
     public String getSinger(int key) {
@@ -23,6 +24,9 @@ public class SingersDao {
 
     public List<String> getSingersVotes() {
         return voteResults.getSingersVote();
+    }
+    public Map<Integer,String> getDataForHtml(){
+        return singer.getSingers();
     }
 //    public void addSingers(String str) throws Exception {
 //        for (String values: singer.getSingers().values()) {
