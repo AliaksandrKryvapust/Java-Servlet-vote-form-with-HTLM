@@ -9,9 +9,9 @@ public class SortedStatistic {
     private final List<String> saveMessages;
 
     public SortedStatistic( LinkedList<String> singersStatistic, LinkedList<String> genresStatistic, List<String> saveMessages) {
-        this.singersStatistic = new LinkedList<> (singersStatistic);
-        this.genresStatistic = new LinkedList<> (genresStatistic);
-        this.saveMessages = new LinkedList<>(saveMessages);
+        this.singersStatistic = singersStatistic;
+        this.genresStatistic = genresStatistic;
+        this.saveMessages = saveMessages;
     }
 
     public List<String> getSingersStatistic() {
@@ -24,5 +24,14 @@ public class SortedStatistic {
 
     public List<String> getSaveMessages() {
         return saveMessages;
+    }
+
+    @Override
+    public String toString() {
+        return "SortedStatistic{" +
+                "singersStatistic=" + singersStatistic +
+                ", genresStatistic=" + genresStatistic +
+                ", saveMessages=" + saveMessages +
+                '}';
     }
 }

@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>it_acad_HW_HTML_with_servlet_headers</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
     <packaging>war</packaging>
     <dependencies>
         <dependency>

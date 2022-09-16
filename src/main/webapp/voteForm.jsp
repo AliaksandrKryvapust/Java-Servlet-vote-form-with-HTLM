@@ -25,22 +25,22 @@
     /*set class properties, higher priority than p{}*/
     </style>
 <body>
-<form method="post" name="voting" action="/it_acad_HW_HTML_with_servlet_headers-1.1-SNAPSHOT/vote_result">
+<form method="post" name="voting" action="/it_acad_HW_HTML_with_servlet_headers-1.2-SNAPSHOT//entry_form">
     <p class="select"> <!--declaring classes to group properties-->
         HW voting form <br> <br> <br>
         Select the best singer
         <label>
             <select name="singer">
                 <c:forEach items="${dataForSingers}" var="singer">
-                    <option value="${singer.key}">${singer.value}</option>
+                    <option value="${singer.getId()}">${singer.getName()}</option>
                 </c:forEach>
             </select>
         </label>
     <p class="choice"> Choose your favorite music genres <br>
         Only 3-5 options are allowed <br>
     <c:forEach items="${dataForGenres}" var="choice">
-                    <label><input type="checkbox" name="genres" value=${choice.key}></label>
-                    ${choice.value}
+                    <label><input type="checkbox" name="genres" value=${choice.getId()}></label>
+                    ${choice.getName()}
     </c:forEach>
 </p>
 
@@ -51,7 +51,7 @@
     </p>
     <p><input type="submit" name="submit_btn" value="Submit"></p>
 </form>
-<form method="get" name="voting" action="/it_acad_HW_HTML_with_servlet_headers-1.1-SNAPSHOT/result">
+<form method="get" name="voting" action="/it_acad_HW_HTML_with_servlet_headers-1.2-SNAPSHOT/statistic">
     <p><input type="submit" name="submit_btn" value="Skip vote and see results"></p>
 
 </form>

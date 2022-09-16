@@ -1,7 +1,7 @@
 package groupId.artifactId.storage.api;
 
-import groupId.artifactId.storage.SingersStorage;
+import groupId.artifactId.core.entity.Singer;
 
-public interface ISingersStorage extends IEssenceStorage<SingersStorage> {
-    void save(SingersStorage singer);
+public interface ISingersStorage extends IEssenceStorage<Singer> {
+    void save(Singer singer);
 }

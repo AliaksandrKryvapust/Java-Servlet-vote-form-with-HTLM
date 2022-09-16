@@ -1,24 +1,20 @@
 package groupId.artifactId.storage;
 
+import groupId.artifactId.core.entity.Singer;
+import groupId.artifactId.core.entity.SingerBuilder;
 import groupId.artifactId.storage.api.ISingersStorage;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SingersStorage implements ISingersStorage {
-    private Integer key = 1;
     private static SingersStorage firstInstance = null;
-    private final Map<Integer, String> singers = new HashMap<>();
-     {
-        singers.put(key, "Michael Jackson");
-        key++;
-        singers.put(key, "Stevie Wonder");
-        key++;
-        singers.put(key, "Marvin Gaye");
-        key++;
-        singers.put(key, "Freddie Mercury");
-        key++;
+    private final List<Singer> singerList = new ArrayList<>();
+
+    private SingersStorage(){
+        this.singerList.add(SingerBuilder.create().setId(1).setName("Michael Jackson").build());
+        this.singerList.add(SingerBuilder.create().setId(2).setName("Stevie Wonder").build());
+        this.singerList.add(SingerBuilder.create().setId(3).setName("Marvin Gaye").build());
+        this.singerList.add(SingerBuilder.create().setId(4).setName("Freddie Mercury").build());
     }
     public static SingersStorage getInstance() {
         synchronized (SingersStorage.class) {
@@ -29,22 +25,18 @@ public class SingersStorage implements ISingersStorage {
         return firstInstance;
     }
 
-    public Map<Integer, String> getSingers() {
-        return singers;
+    @Override
+    public List<Singer> getEssences() {
+        return this.singerList;
     }
 
     @Override
-    public List<SingersStorage> get() {
-        return null;
+    public Singer getEssenceById(int id) {
+        return this.singerList.stream().filter((i)->i.getId()==id).findFirst().orElse(null);
     }
 
     @Override
-    public SingersStorage get(int id) {
-        return null;
-    }
-
-    @Override
-    public void save(SingersStorage singer) {
-
+    public void save(Singer singer) {
+        this.singerList.add(singer);
     }
 }

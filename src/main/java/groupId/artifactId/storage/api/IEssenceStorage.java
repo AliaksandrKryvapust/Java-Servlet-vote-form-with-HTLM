@@ -2,8 +2,8 @@ package groupId.artifactId.storage.api;
 
 import java.util.List;
 
-public interface IEssenceStorage<Type> {
-    List<Type> get();
+public interface IEssenceStorage<TYPE> {
+    List<TYPE> getEssences();
 
-    Type get(int id);
+    TYPE getEssenceById(int id);
 }

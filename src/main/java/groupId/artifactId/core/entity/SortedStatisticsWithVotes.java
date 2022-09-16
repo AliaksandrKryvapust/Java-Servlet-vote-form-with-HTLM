@@ -6,14 +6,15 @@ import java.util.List;
 import java.util.Map;
 
 public class SortedStatisticsWithVotes {
-    private final Map<String,Integer> singersStatistic;
+    private final Map<String, Integer> singersStatistic;
     private final Map<String, Integer> genresStatistic;
     private final List<String> saveMessages;
 
-    public SortedStatisticsWithVotes(Map<String,Integer> singersStatistic, Map<String,Integer> genresStatistic, List<String> saveMessages) {
-        this.singersStatistic = new LinkedHashMap<>(singersStatistic);
-        this.genresStatistic = new LinkedHashMap<> (genresStatistic);
-        this.saveMessages = new LinkedList<>(saveMessages);
+    public SortedStatisticsWithVotes(Map<String, Integer> singersStatistic, Map<String, Integer> genresStatistic,
+                                     List<String> saveMessages) {
+        this.singersStatistic = singersStatistic;
+        this.genresStatistic = genresStatistic;
+        this.saveMessages = saveMessages;
     }
 
     public Map<String, Integer> getSingersStatistic() {
@@ -26,5 +27,14 @@ public class SortedStatisticsWithVotes {
 
     public List<String> getSaveMessages() {
         return saveMessages;
+    }
+
+    @Override
+    public String toString() {
+        return "SortedStatisticsWithVotes{" +
+                "singersStatistic=" + singersStatistic +
+                ", genresStatistic=" + genresStatistic +
+                ", saveMessages=" + saveMessages +
+                '}';
     }
 }

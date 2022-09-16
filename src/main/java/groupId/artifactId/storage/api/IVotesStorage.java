@@ -1,7 +1,7 @@
 package groupId.artifactId.storage.api;
 
-import groupId.artifactId.storage.VoteResults;
+import groupId.artifactId.core.entity.Vote;
 
-public interface IVotesStorage extends IEssenceStorage<VoteResults>{
-    void save(VoteResults voteResults);
+public interface IVotesStorage extends IEssenceStorage<Vote>{
+    void save(Vote vote);
 }

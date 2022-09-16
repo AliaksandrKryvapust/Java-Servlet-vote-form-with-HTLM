@@ -1,7 +1,7 @@
 package groupId.artifactId.storage.api;
 
-import groupId.artifactId.storage.Genres;
+import groupId.artifactId.core.entity.Genre;
 
-public interface IGenresStorage extends IEssenceStorage<Genres>{
-    void save(Genres genre);
+public interface IGenresStorage extends IEssenceStorage<Genre>{
+    void save(Genre genre);
 }
