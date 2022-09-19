@@ -25,7 +25,7 @@
     /*set class properties, higher priority than p{}*/
     </style>
 <body>
-<form method="post" name="voting" action="/it_acad_HW_HTML_with_servlet_headers-1.2-SNAPSHOT//entry_form">
+<form method="post" name="voting" action="${pageContext.request.contextPath}/entry_form">
     <p class="select"> <!--declaring classes to group properties-->
         HW voting form <br> <br> <br>
         Select the best singer
@@ -51,7 +51,7 @@
     </p>
     <p><input type="submit" name="submit_btn" value="Submit"></p>
 </form>
-<form method="get" name="voting" action="/it_acad_HW_HTML_with_servlet_headers-1.2-SNAPSHOT/statistic">
+<form method="get" name="voting" action="${pageContext.request.contextPath}/statistic">
     <p><input type="submit" name="submit_btn" value="Skip vote and see results"></p>
 
 </form>

@@ -37,6 +37,6 @@ public class VoteServlet extends HttpServlet {
             throw new ServletException(e);
         }
             statisticService.saveStatic(singer, genresArr, message);
-        resp.sendRedirect("/it_acad_HW_HTML_with_servlet_headers-1.2-SNAPSHOT/statistic");
+        resp.sendRedirect(req.getContextPath() + "/statistic");
     }
 }

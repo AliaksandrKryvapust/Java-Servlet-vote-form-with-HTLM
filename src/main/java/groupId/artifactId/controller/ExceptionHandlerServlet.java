@@ -14,15 +14,17 @@ public class ExceptionHandlerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html; charset=UTF-8");
+        Throwable throwable = (Throwable) req.getAttribute("javax.servlet.error.exception");
         PrintWriter writer = resp.getWriter();
-        writer.write("<p> Error </p>");
+        writer.write("<p> Error: " + throwable.getMessage() + "</p>");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws   IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html; charset=UTF-8");
+        Throwable throwable = (Throwable) req.getAttribute("javax.servlet.error.exception");
         PrintWriter writer = resp.getWriter();
-        writer.write("<p> Error. Incorrect input </p>");
+        writer.write("<p> Error: " + throwable.getMessage() + "</p>");
     }
 }
